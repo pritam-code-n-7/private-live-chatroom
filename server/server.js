@@ -40,13 +40,15 @@ io.on("connection", (socket) => {
     socket.on("sendMessage", async (message) => {
       const newMessage = new Message({ room, username, message });
       await newMessage.save();
+      console.log("message recieved",message)
 
       io.to(room).emit("message", { username, message, timestamp: new Date() });
+      console.log("message is",room)
     });
   });
 
   //socket.io disconnection logic
-  socket.on("dissconnect", () => {
+  socket.on("disconnect", () => {
     console.log("client disconnected");
   });
 });

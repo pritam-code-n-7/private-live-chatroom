@@ -1,10 +1,12 @@
-/* eslint-disable no-unused-vars */
-import { io } from "socket.io-client";
+import { RouterProvider } from "react-router-dom";
+import { routes } from "./routes/routes";
 
 function App() {
-  
-
-  return <div className="p-2">app</div>;
+  return (
+    <div className="bg-black min-h-screen">
+      <RouterProvider router={routes} />
+    </div>
+  );
 }
 
 export default App;
